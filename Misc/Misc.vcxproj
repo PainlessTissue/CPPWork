@@ -113,6 +113,7 @@
   <ItemGroup>
     <ClInclude Include="ArraySorts.h" />
     <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="Trace.h" />
     <ClInclude Include="UniqueLL.h" />
   </ItemGroup>
   <ItemGroup>
