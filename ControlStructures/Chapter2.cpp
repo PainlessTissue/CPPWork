@@ -1,5 +1,6 @@
 #include "Chapter2.h"
 #include <iostream>
+#include <string>
 
 using std::cout;
 using std::cin;
@@ -85,4 +86,28 @@ void Chapter2::question5()
 	}
 
 	Trace::out("Final number: %f\n", addedNumbers / numbersEntered);
+}
+
+void Chapter2::question7()
+{
+	const float SEA_LEVEL_RISE = 1.5f;
+
+	Trace::out("Sea level will rise %.2f milimeters in 5 years", SEA_LEVEL_RISE * 5);
+	Trace::out("Sea level will rise %.2f milimeters in 7 years", SEA_LEVEL_RISE * 7);
+	Trace::out("Sea level will rise %.2f milimeters in 10 years", SEA_LEVEL_RISE * 10);
+}
+
+void Chapter2::question16(int sizeOfTriangle)
+{
+	//im required to use cout instead of trace::out due to the way trace works
+	for (int i = 0; i <= sizeOfTriangle; i++)
+	{
+		cout << std::string(i, '*') << endl;
+	}
+
+	for (int i = sizeOfTriangle - 1; i >= 0; i--)
+	{
+		cout << std::string(i, '*') << endl;
+	}
+	cin.ignore(); //to show the triangle
 }
