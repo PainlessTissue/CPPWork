@@ -20,7 +20,7 @@ Maze::Maze()
 		maze[i][0] = BOUNDARY;
 		maze[i][COLUMNS - 1] = BOUNDARY;
 	}
-
+	//
 	//this is for setting the maze
 	for (int i = 1; i < ROWS - 1; ++i)
 	{
