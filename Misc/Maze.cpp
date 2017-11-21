@@ -4,7 +4,7 @@
 #include "Trace.h"
 
 Maze::Maze()
-	:sucessfulMaze(false) //assume false
+//:sucessfulMaze(false) //assume false
 {
 
 	//these two are for setting the boundaries
@@ -23,7 +23,7 @@ Maze::Maze()
 	do //make sure i create a good maze
 	{
 		srand(GetTickCount()); //resets seed
-		
+
 		//this is for setting the maze
 		for (int i = 1; i < ROWS - 1; ++i)
 		{
@@ -34,7 +34,8 @@ Maze::Maze()
 		}
 
 
-		Trace::out("\n");
+
+		//Trace::out("\n");
 	} while (testMaze() == false);
 }
 
@@ -57,26 +58,30 @@ void Maze::print()
 
 bool Maze::testMaze()
 {
-	searchMaze(1, 1); //start off the boundaries
+	bool c = false;
+	searchMaze(1, 1, c); //start off the boundaries
 
-	return sucessfulMaze;
+	return c;
 }
 
-void Maze::searchMaze(int row, int col)
+void Maze::searchMaze(int row, int col, bool &suc)
 {
+	if (suc == true)
+		suc = false;
+
 	if (maze[row][col] == CLOSED)
-	{
-	}
+		return;
+	
 
 	else if (maze[row][col] == OPEN) //base case
 	{
 		//Trace::out("%i, %i free\n", row, col);
 
-			searchMaze(++row, col);
+		searchMaze(++row, col, suc);
 
-			searchMaze(row, ++col);
+		searchMaze(row, ++col, suc);
 
-		
+
 		//else if (maze[row - 1][col] == OPEN) //move up
 		//	searchMaze(--row, col);
 
@@ -85,12 +90,9 @@ void Maze::searchMaze(int row, int col)
 
 	}
 
+
 	else if (maze[row][col] == BOUNDARY) //if we ever reach a boundary, success (for now)
-	{
-		if (sucessfulMaze == true) {}
-			//sucessfulMaze = true;
-		else
-			sucessfulMaze = true;
-	}
+		suc = true;
+
 }
 
