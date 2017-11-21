@@ -6,4 +6,6 @@
 int main()
 {
 	Maze m;
+
+	m.print();
 }

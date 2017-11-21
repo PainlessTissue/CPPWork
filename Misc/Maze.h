@@ -13,7 +13,7 @@ public:
 	Maze();
 	~Maze();
 
-
+	void print();
 private:
 	int maze[ROWS][COLUMNS];
 	bool sucessfulMaze;
