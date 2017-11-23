@@ -72,9 +72,10 @@
   <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -112,10 +113,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CI_Chapter1.h" />
+    <ClInclude Include="CI_Chapter2.h" />
     <ClInclude Include="Trace.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CI_Chapter1.cpp" />
+    <ClCompile Include="CI_Chapter2.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

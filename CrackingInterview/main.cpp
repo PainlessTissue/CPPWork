@@ -5,5 +5,5 @@ int main()
 {
 	CI_Chapter1 a;
 
-	Trace::out("%d\n", a.question1("Grandrg"));
+	Trace::out("%d\n", a.question2STRING("dangerous fsh", "fish dangerous"));
 }
