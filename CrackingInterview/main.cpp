@@ -5,7 +5,7 @@
 
 int main()
 {
-	CI_Chapter2 a;
+	CI_Chapter1 a;
 
-	Trace::out("%i", a.question6());
+	Trace::out("%i", a.question5STRING("Dong", "eing"));
 }
