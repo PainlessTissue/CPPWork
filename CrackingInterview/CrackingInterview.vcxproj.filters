@@ -24,6 +24,9 @@
     <ClInclude Include="CI_Chapter2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CI_Chapter3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CI_Chapter1.cpp">
@@ -33,6 +36,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CI_Chapter2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CI_Chapter3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
