@@ -42,15 +42,35 @@ bool CI_Chapter1::question2STRING(string str1, string str2)
 	return false;
 }
 
-bool CI_Chapter1::question2CHAR( char * str1,  char * str2)
+bool CI_Chapter1::question5STRING(string str1, string str2)
 {
-	(void*)str1;
-	(void*)str2;
+	if (str1.length() == str2.length()) //check if they are one edit away from being the same, or are the same
+	{
+		int edit = 0; // if this number is length - 1, then they are one edit away, otherwise they arent
+		
+		//this loop is checking how similar the two strings are
+		for (int i = 0; i < str1.length(); ++i)
+		{
+			if (str1.at(i) == str2.at(i))
+				++edit;
+		}
+
+		if (edit == str1.length())
+			return true; //they are the same string
+
+		else if (edit == str1.length() - 1)
+			return true; //one edit way
+
+		else
+			return false; //not one edit away
+	}
+
+	else if (str1.length() + 1 == str2.length() || str1.length() - 1 == str2.length()) //possiblity of being one edit away (modifying str1)
+	{
+//
+	}
+		
+		
 	return false;
-	//qsort(str1, strlen(str1), sizeof(char*), stringCompare);
 }
 
-int CI_Chapter1::stringCompare(const char* p1, const char* p2)
-{
-	return strcmp(p1, p2);
-}

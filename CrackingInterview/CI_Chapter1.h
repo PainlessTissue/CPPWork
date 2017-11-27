@@ -11,7 +11,12 @@ public:
 	bool question1CHAR(const char *str); //is unique
 
 	bool question2STRING(string str1, string str2); //check permutation
-	bool question2CHAR( char * str1,  char * str2); //check permutation
-	int stringCompare(const char*, const char*);
+	//bool question2CHAR( char * str1,  char * str2); //check permutation
+	//int stringCompare(const char*, const char*);
+
+	//NOT FINISHED
+	bool question5STRING(string str1, string str2); //check if a string is one(or 0) edits away from being the same string 
+
+	int * changeMatrix(int rowLen, int colLen);//
 };
 
