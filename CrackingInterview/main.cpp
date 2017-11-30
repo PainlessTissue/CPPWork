@@ -12,18 +12,19 @@
 
 int main()
 {
-	StackMin a;
+	SetOfStacks a;
 
-	a.push(3);
-	a.push(4);
-	a.push(43);
-	Trace::out("POPPED: %i\n", a.pop());
-	Trace::out("POPPED: %i\n", a.pop());
-	Trace::out("POPPED: %i\n", a.pop());
-	a.push(32);
-	Trace::out("POPPED: %i\n", a.pop());
+	for (int i = 0; i < 200; i++)
+		a.push(2);
+	
+	for (int i = 0; i < 100; i++)
+		a.pop();
 
+	Trace::out("%i\n", a.pop());
+
+	a.erase();
 
 	_CrtDumpMemoryLeaks(); //check if anything is leaking after delete
 
 }
+

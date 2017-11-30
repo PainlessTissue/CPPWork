@@ -6,13 +6,7 @@ using std::stack;
 
 #include "CI_Chapter3.h"
 
-void CI_Chapter3::question1()
-{
-
-}
-
-
-
+//static variables for StackMin
 int StackMin::minNum = 0;
 StackMin *StackMin::top = 0;
 
@@ -71,5 +65,69 @@ void StackMin::erase()
 		//delete top;
 
 		top = tmp;
+	}
+}
+
+//static variable for SetOfStacks
+SetOfStacks *SetOfStacks::head = new SetOfStacks;
+
+SetOfStacks::SetOfStacks()
+	:below(0), above(0) {}
+
+
+SetOfStacks::~SetOfStacks()
+{
+}
+
+
+void SetOfStacks::push(int item)
+{
+	if (head->Stack.size() >= 50)
+	{
+		SetOfStacks *tmp = head; 
+
+		head->above = new SetOfStacks;
+		head->above->below = tmp;
+
+		head = head->above;
+	}
+
+	head->Stack.push(item);
+}
+
+int SetOfStacks::pop()
+{
+	if (head->Stack.size() == 0)
+	{
+		if (head->below)
+		{
+			SetOfStacks *tmp = head->below;
+			delete head; 
+			head = tmp;
+			head->above = 0;
+		}
+
+		else
+			return 0;
+	}
+	
+	//I dont know why but this is necessary. I cant just return head->stack.pop()
+	//i need a variable of the top then i can pop it
+	int d = head->Stack.top();
+	head->Stack.pop();
+	return d;
+}
+
+void SetOfStacks::erase()
+{
+	SetOfStacks *bel = 0;
+
+	while (head != 0)
+	{
+		bel = head->below;
+
+		delete head;
+
+		head = bel;
 	}
 }

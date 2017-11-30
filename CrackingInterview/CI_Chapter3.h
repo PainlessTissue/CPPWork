@@ -1,10 +1,8 @@
 #include "Trace.h"
+#include <stack>
 
 class CI_Chapter3 //stacks and queues
 {
-public:
-
-	void question1(); //describe how you could use a single array to implement three stacks
 
 };
 
@@ -29,5 +27,22 @@ private:
 	static int minNum;
 	static StackMin *top;
 
+};
+
+//question 3: create a stack that, when it gets too large, creates a new stack (similar to stacking plates)
+struct SetOfStacks
+{
+	SetOfStacks();
+	~SetOfStacks();
+
+	void push(int item);
+	int pop();
+	void erase();
+
+private:
+	std::stack<int> Stack;
+	SetOfStacks *below, *above;
+
+	static SetOfStacks *head;
 };
 
