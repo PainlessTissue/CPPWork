@@ -42,6 +42,60 @@ bool CI_Chapter1::question2STRING(string str1, string str2)
 	return false;
 }
 
+bool CI_Chapter1::question2CHAR(const char * str1, const char * str2)
+{
+	//create new strings from given ones
+	char *str1cmp = new char[strlen(str1) + 1];
+	strcpy_s(str1cmp, strlen(str1) + 1, str1);
+
+	char *str2cmp = new char[strlen(str1) + 1];
+	strcpy_s(str2cmp, strlen(str2) + 1, str2);
+	
+	//sorting process
+	for (int i = 0; str1cmp[i] != NULL; i++)
+	{
+		for (int j = i + 1; str1cmp[j] != NULL; j++)
+		{
+			if (str1cmp[i] > str1cmp[j])
+			{
+				char tmp = str1cmp[i];
+				str1cmp[i] = str1cmp[j];
+				str1cmp[j] = tmp;
+			}
+		}
+	}
+
+	for (int i = 0; str2cmp[i] != NULL; i++)
+	{
+		for (int j = i + 1; str2cmp[j] != NULL; j++)
+		{
+			if (str2cmp[i] > str2cmp[j])
+			{
+				char tmp = str2cmp[i];
+				str2cmp[i] = str2cmp[j];
+				str2cmp[j] = tmp;
+			}
+		}
+	}
+
+
+	if (strcmp(str1cmp, str2cmp) == 1) //not the same
+	{
+		delete[] str1cmp;
+		delete[] str2cmp;
+
+		return false;
+	}
+
+	else
+	{
+		delete[] str1cmp;
+		delete[] str2cmp;
+
+		return true;
+	}
+}
+
 string CI_Chapter1::question3STRING(string str)
 {
 	for (unsigned int i = 0; i < str.length(); i++)
@@ -56,6 +110,22 @@ string CI_Chapter1::question3STRING(string str)
 	return str;
 }
 
+char * CI_Chapter1::question3CHAR(const char * str)
+{
+	//copy string
+	char *str1 = new char[strlen(str) + 1];
+	strcpy_s(str1, strlen(str) + 1, str);
+
+	for (int i = 0; str1[i] != NULL; i++)
+	{
+		if (str1[i] == ' ')
+			strcat_s(str1, strlen(str1) + 4, "%20"); //doesnt work, add it to the end
+		
+	}
+
+	return str1;
+}
+
 bool CI_Chapter1::question4STRING(string str)
 {
 	for (unsigned int i = 0; i < str.length(); i++) //first remove any spaces
@@ -66,16 +136,33 @@ bool CI_Chapter1::question4STRING(string str)
 
 	unsigned int halfway = str.length() / 2;
 
-	for (unsigned int i = 0; i < str.length(); i++)
+	for (unsigned int i = 0; halfway < i; i++) //no need to go further than half of the string (adds safety)
 	{
-		if (halfway < i) //no need to go further than half of the string (adds safety)
-			break;
+		if (str.at(i) /*front*/ != str.at(str.length() - i - 1) /*back*/) //check the front back if the same
+			return false;	
+	}
 
-		if (str.at(i) /*front*/ == str.at(str.length() - i - 1) /*back*/) //check the front back if the same
-		{
-		}
+	return true;
+}
 
-		else
+bool CI_Chapter1::question4CHAR(const char * str)
+{
+	//copy string
+	char *str1 = new char[strlen(str) + 1];
+	//strcpy_s(str1, strlen(str) + 1, str);
+
+	
+	for (int i = 0; str1[i] != NULL; i++)
+	{
+		if (str[i] != ' ') {}
+			//strcat_s(str[i] = ;
+	}
+
+	int halfway = strlen(str1) / 2;
+
+	for (int i = 0; halfway < i; i++)
+	{
+		if (str1[i] != str1[strlen(str1) - i - 1])
 			return false;
 	}
 

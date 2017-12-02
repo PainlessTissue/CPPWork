@@ -9,22 +9,14 @@
 #include <stdlib.h>
 #include <crtdbg.h>
 
+#include <iostream>
 
 int main()
 {
-	SetOfStacks a;
+	CI_Chapter1 a;
 
-	for (int i = 0; i < 200; i++)
-		a.push(2);
+	Trace::out("%i\n", a.question4CHAR("g a r"));
 	
-	for (int i = 0; i < 100; i++)
-		a.pop();
-
-	Trace::out("%i\n", a.pop());
-
-	a.erase();
-
-	_CrtDumpMemoryLeaks(); //check if anything is leaking after delete
-
+	_CrtDumpMemoryLeaks();
 }
 
