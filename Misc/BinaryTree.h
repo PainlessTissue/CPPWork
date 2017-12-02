@@ -18,7 +18,7 @@ public:
 	void postOrderTraversal(BinaryTree *head);
 
 private:
-	bool checkSorted(BinaryTree *node);
+	void checkSorted(BinaryTree *node, bool &status);
 	void sortHelper(BinaryTree *node);
 
 	int num;

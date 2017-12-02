@@ -39,8 +39,13 @@ BinaryTree * BinaryTree::createTree()
 
 void BinaryTree::sort(BinaryTree * head)
 {
-	while (checkSorted(head) == false)
+	bool d = false;
+
+	do
+	{
 		sortHelper(head);
+		checkSorted(head, d);
+	} while (d == false);
 }
 
 void BinaryTree::inOrderTraversal(BinaryTree * head)
@@ -73,36 +78,42 @@ void BinaryTree::postOrderTraversal(BinaryTree * head)
 	}
 }
 
-bool BinaryTree::checkSorted(BinaryTree *node)
+void BinaryTree::checkSorted(BinaryTree *node, bool &status)
 {
 	if (node)
 	{
 		if (node->left)
 		{
 			if (node->num > node->left->num)
-				checkSorted(node->left);
+			{
+				status = true;
+				checkSorted(node->left, status);
+			}
 
 			else
-				return false;
+				status = false;
 		}
 
 		else
-			return true;
+			status = true;
 
 		if (node->right)
 		{
 			if (node->num < node->right->num)
-				checkSorted(node->right);
+			{
+				status = true;
+				checkSorted(node->right, status);
+			}
 
 			else
-				return false;
+				status = false;
 		}
 
 		else 
-			return true;
+			status = true;
 	}
 
-	return true;
+	status = true;
 }
 
 void BinaryTree::sortHelper(BinaryTree * node)
@@ -139,8 +150,8 @@ void BinaryTree::sortHelper(BinaryTree * node)
 			}
 		} //node->right
 
-		sort(node->left);
-		sort(node->right);
+		sortHelper(node->left);
+		sortHelper(node->right);
 	} //node != 0
 }
 

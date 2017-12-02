@@ -9,9 +9,10 @@ int main()
 	BinaryTree *head = BinaryTree::createTree();// = new BinaryTree;
 	
 	head->sort(head);
-	//Trace::out("In order\n");
-	//head->inOrderTraversal(head);
-	//Trace::out("\n\n");
+
+	Trace::out("In order\n");
+	head->inOrderTraversal(head);
+	Trace::out("\n\n");
 
 	//Trace::out("Post order\n");
 	//head->postOrderTraversal(head);
