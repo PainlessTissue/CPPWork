@@ -1,6 +1,5 @@
-#include "DEC_Pizza.h"
-#include "DEC_Condiment.h"
-
+#include "OBS_WeatherObject.h"
+#include "OBS_BasicDisplay.h"
 
 #include "Trace.h"
 #include <iostream>
@@ -9,20 +8,8 @@
 
 int main()
 {
-	Pizza *piz = new CheesePizza;
+	WeatherObject *obj = new BasicDisplay();
 
-	piz = new Pep(piz);
-	piz = new Sausage(piz);
-
-	std::cout << piz->getCost() << piz->getName();
-	std::cin.ignore();
+	obj->addWeatherObject(obj);
 	
-
-	delete piz;
-
-	_CrtDumpMemoryLeaks();
-
-	
-	
-	return 0;
 }

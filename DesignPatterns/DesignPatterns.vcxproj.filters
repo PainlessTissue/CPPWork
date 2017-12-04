@@ -16,6 +16,9 @@
     <Filter Include="Decorator">
       <UniqueIdentifier>{f2f27591-374c-4fe6-81aa-21d3aa25c4a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Observer">
+      <UniqueIdentifier>{0dd1d49b-3006-4a12-87b1-0426b0f63dd8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -27,6 +30,12 @@
     <ClCompile Include="DEC_Pizza.cpp">
       <Filter>Decorator</Filter>
     </ClCompile>
+    <ClCompile Include="OBS_WeatherObject.cpp">
+      <Filter>Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="OBS_BasicDisplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Trace.h">
@@ -37,6 +46,12 @@
     </ClInclude>
     <ClInclude Include="DEC_Pizza.h">
       <Filter>Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="OBS_WeatherObject.h">
+      <Filter>Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="OBS_BasicDisplay.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
