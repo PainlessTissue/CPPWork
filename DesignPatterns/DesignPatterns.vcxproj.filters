@@ -13,5 +13,30 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Decorator">
+      <UniqueIdentifier>{f2f27591-374c-4fe6-81aa-21d3aa25c4a2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DEC_Condiment.cpp">
+      <Filter>Decorator</Filter>
+    </ClCompile>
+    <ClCompile Include="DEC_Pizza.cpp">
+      <Filter>Decorator</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Trace.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DEC_Condiment.h">
+      <Filter>Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="DEC_Pizza.h">
+      <Filter>Decorator</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

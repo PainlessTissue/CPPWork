@@ -111,6 +111,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DEC_Condiment.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="DEC_Pizza.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DEC_Condiment.h" />
+    <ClInclude Include="DEC_Pizza.h" />
+    <ClInclude Include="Trace.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
