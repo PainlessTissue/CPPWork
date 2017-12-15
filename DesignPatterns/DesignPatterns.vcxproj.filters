@@ -19,6 +19,9 @@
     <Filter Include="Observer">
       <UniqueIdentifier>{0dd1d49b-3006-4a12-87b1-0426b0f63dd8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Factory">
+      <UniqueIdentifier>{64f75923-01a9-422e-9898-e3c16b290fc6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -36,6 +39,9 @@
     <ClCompile Include="OBS_BasicDisplay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FACT_CardGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Trace.h">
@@ -51,6 +57,9 @@
       <Filter>Observer</Filter>
     </ClInclude>
     <ClInclude Include="OBS_BasicDisplay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FACT_CardGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
