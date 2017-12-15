@@ -113,12 +113,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CI_Chapter1.h" />
+    <ClInclude Include="CI_Chapter13.h" />
     <ClInclude Include="CI_Chapter2.h" />
     <ClInclude Include="CI_Chapter3.h" />
     <ClInclude Include="Trace.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CI_Chapter1.cpp" />
+    <ClCompile Include="CI_Chapter13.cpp" />
     <ClCompile Include="CI_Chapter2.cpp" />
     <ClCompile Include="CI_Chapter3.cpp" />
     <ClCompile Include="main.cpp" />
