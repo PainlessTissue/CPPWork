@@ -10,7 +10,11 @@ int BinaryTree::nodeNum = 0;
 BinaryTree::BinaryTree()
 	:num(0), left(0), right(0)
 {
+	//this is to disable unncessary warnings
+#pragma warning(push)
+#pragma warning (disable:4244)
 	srand(time(NULL));
+#pragma warning(pop)
 }
 
 

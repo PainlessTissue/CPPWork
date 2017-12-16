@@ -37,8 +37,11 @@ void ArraySorts::bubbleSort(int arr[], int size)
 	}
 }
 
+#pragma warning (push)
+#pragma warning (disable:4715)
 int ArraySorts::binarySearchRecursion(int arr[], int size, int num)
 {
+
 	int mid = size / 2;
 
 
@@ -52,8 +55,8 @@ int ArraySorts::binarySearchRecursion(int arr[], int size, int num)
 
 	else if (num < arr[mid])
 		binarySearchRecursion(arr, (mid / 2), num);
-
 }
+#pragma warning (pop)
 
 int ArraySorts::binarySearchIterative(int arr[], int size, int num)
 {

@@ -134,7 +134,7 @@ bool CI_Chapter1::question4STRING(string str)
 			str.replace(i, 1, "");
 	}
 
-	unsigned int halfway = str.length() / 2;
+	size_t halfway = str.length() / 2;
 
 	for (unsigned int i = 0; halfway < i; i++) //no need to go further than half of the string (adds safety)
 	{
@@ -158,7 +158,7 @@ bool CI_Chapter1::question4CHAR(const char * str)
 			//strcat_s(str[i] = ;
 	}
 
-	int halfway = strlen(str1) / 2;
+	size_t halfway = strlen(str1) / 2;
 
 	for (int i = 0; halfway < i; i++)
 	{
