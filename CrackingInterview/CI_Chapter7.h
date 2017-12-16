@@ -50,53 +50,33 @@ class AvaliableEmployees
 	queue<Director> avaliableDirector;
 
 public:
-	void dispatchCall()
-	{
-		if (avaliableRespondants.size() > 0)
-			getAvaliableRespondant();
+	void dispatchCall();
 
-		else if (avaliableManager.size() > 0)
-			getAvaliableManager();
-		
-		else
-			getAvaliableDirector();
-	}
+	Respondent getAvaliableRespondant();
 
-	Respondent getAvaliableRespondant() 
-	{ 
-		Respondent r = avaliableRespondants.front();
-		avaliableDirector.pop();
+	Manager getAvaliableManager();
 
-		return r;
-	}
-
-	Manager getAvaliableManager()
-	{
-		Manager m = avaliableManager.front();
-		avaliableManager.pop();
-
-		return m;
-	}
-
-	Director getAvaliableDirector()
-	{
-		Director d = avaliableDirector.front();
-		avaliableDirector.pop();
-
-		return d;
-	}
+	Director getAvaliableDirector();
 };
 
+
+
+
 //question 3: implement a jukebox
-template <class Song>
+
+class Song; //forward decleration
+
+template <typename Song>
 class JukeBox
 {
 	LinkedList<Song> *list; //a jukebox has a list of songs
-	int listSize;
+	int listSize; //a jukebox has a certain amount of songs
 
 public:
 	void playSong(Song *song) { song->playSong(); }
 	void playRandomSong() { list[rand() % listSize]->playSong(); }
+	void addSongToList(Song song);
+	void removeSongFromList(Song *song);
 };
 
 class Song
@@ -108,3 +88,4 @@ class Song
 public:
 	void playSong() {}
 };
+
