@@ -36,11 +36,11 @@
     <ClCompile Include="OBS_WeatherObject.cpp">
       <Filter>Observer</Filter>
     </ClCompile>
-    <ClCompile Include="OBS_BasicDisplay.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FACT_CardGame.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="OBS_BasicDisplay.cpp">
+      <Filter>Observer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,11 +56,11 @@
     <ClInclude Include="OBS_WeatherObject.h">
       <Filter>Observer</Filter>
     </ClInclude>
-    <ClInclude Include="OBS_BasicDisplay.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FACT_CardGame.h">
-      <Filter>Header Files</Filter>
+      <Filter>Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="OBS_BasicDisplay.h">
+      <Filter>Observer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -16,7 +16,6 @@
 
 int main()
 {
-	CardGameType::BlackJack;
 	
 	_CrtDumpMemoryLeaks();
 }
