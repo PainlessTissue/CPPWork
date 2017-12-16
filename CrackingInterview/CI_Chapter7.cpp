@@ -56,5 +56,55 @@ void JukeBox<Song>::addSongToList(Song song)
 template<typename Song>
 void JukeBox<Song>::removeSongFromList(Song * song)
 {
-	
+	(void*)song; //get rid of errors
+}
+
+
+
+//question 4
+
+//static variable declerations
+ParkingGarage *ParkingGarage::instance = 0;
+int ParkingGarage::numParkingSpotsOpen = 0;
+
+ParkingGarage * ParkingGarage::createParkingGarage()
+{
+	if (instance == 0)
+	{
+		instance = new ParkingGarage;
+		//allocate how ever many parking spots there will be in the garage
+		instance->parkingSpots = new LinkedList<ParkingSpot>[NUMSPOTS]; 
+
+		//setting the head node
+		instance->parkingSpots[0].prev = 0; 
+		instance->parkingSpots[0].next = &instance->parkingSpots[1];
+		instance->parkingSpots[0].item->setId(0);
+
+		//this does all the setting for the other nodes throughout the parking lot
+		//giving them their id numbers and setting the prev and next for the 
+		for (int i = 1; i < NUMSPOTS; i++)
+		{
+			//i got rid of the prev and next assignments because, for parking lots
+			//there isnt really any form of linkage, just numbers, which can be accessed through their id
+			
+			//instance->parkingSpots[i].prev = &instance->parkingSpots[i - 1]; //set the prev
+			//instance->parkingSpots[i].next = &instance->parkingSpots[i + 1]; //set the next 
+			
+			instance->parkingSpots[i].item->setId(i); //set the id
+		}
+	}
+
+	instance->parkingSpots[NUMSPOTS - 1].next = 0;
+
+	return instance;
+}
+
+void ParkingSpot::setUnavaliable()
+{
+	this->avaliable = false;
+}
+
+void ParkingSpot::setAvaliable()
+{
+	this->avaliable = true;
 }

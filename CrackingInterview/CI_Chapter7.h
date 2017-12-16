@@ -10,10 +10,11 @@ class CI_Chapter7 //oo design
 };
 
 //i created my own linked list for this because I find basic stl unsatisfactory
-template <typename T>
+template <class T>
 struct LinkedList
 {
 	LinkedList *next, *prev;
+	T *item;
 
 	T find(T find, LinkedList<T> *head)
 	{
@@ -25,6 +26,11 @@ struct LinkedList
 
 		return 0;
 	}
+
+	LinkedList()
+		:next(0), prev(0), item(new T) {}
+
+	LinkedList(T item) { this->item = item; }
 };
 
 //question 1 can be found in design patterns project (factory)
@@ -89,3 +95,37 @@ public:
 	void playSong() {}
 };
 
+
+//question 4: implement a parking garage
+
+class ParkingSpot;
+
+#define NUMSPOTS 400
+
+class ParkingGarage
+{
+	static int numParkingSpotsOpen; //displays amount of avaliable parking spots in garage
+	static ParkingGarage *instance; //singleton parking garage instance
+
+	LinkedList<ParkingSpot> *parkingSpots;
+	ParkingGarage() {}
+
+public:
+	static ParkingGarage *createParkingGarage(); //singleton creation
+	static ParkingGarage *getInstance() { return instance; }
+};
+
+class ParkingSpot
+{
+	ParkingGarage *garage;
+	int parkingSpotId; //each parking spot will have its own unique id
+	bool avaliable; //whether the parkig spot is taken or not
+
+public:
+	void setUnavaliable();
+	void setAvaliable();
+	void setId(int num) { this->parkingSpotId = num; }
+
+	ParkingSpot()
+		:garage(ParkingGarage::getInstance()), avaliable(true) {}
+};
