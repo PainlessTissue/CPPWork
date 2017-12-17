@@ -129,3 +129,35 @@ public:
 	ParkingSpot()
 		:garage(ParkingGarage::getInstance()), avaliable(true) {}
 };
+
+
+
+//question 6: design an n*n jigsaw puzzle and an algoritm to solve it
+//it also has a fitswith() method that checks if two pieces would fit together
+
+#define ROWSIZE 3
+#define COLSIZE 3
+
+enum class JigsawSlot;
+class JigsawPiece;
+
+class JigsawPuzzle
+{
+	int row, column; //the size of the puzzle
+
+public:
+	bool fitsWith(int jigRow, int jigCol);
+
+};
+
+enum class JigsawSlot
+{
+	in, out, closed
+};
+
+class JigsawPiece
+{
+	//each jigsaw piece will have pointers to whoever resides around the piece
+	//this will determine whether a piece can fit together
+	JigsawPiece *north, *south, *east, *west;
+};
