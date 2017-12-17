@@ -108,3 +108,104 @@ void ParkingSpot::setAvaliable()
 {
 	this->avaliable = true;
 }
+
+#include <time.h>
+
+JigsawPiece::JigsawPiece()
+	:northPiece(0), southPiece(0), eastPiece(0), westPiece(0), inserted(false)
+{
+	//this counter variable makes sure a single piece never has more than 2 closed spots
+	int numClosed = 0;
+	int rander = (rand() % 3); //create random number
+
+	if (rander == 2) //if the random variable is 2 (closed), increment the counter
+		numClosed++;
+
+	northSlot = (JigsawSlot)(rander); //assign the random number
+
+	rander = (rand() % 3); //create a new random number
+
+	if (rander == 2)
+		numClosed++;
+
+	southSlot = (JigsawSlot)(rander);
+
+	rander = (rand() % 3); 
+
+	//at this point it is possible to have more than two closed spots,
+	//which is why we test if it is currently 2
+	if (rander == 2) 
+	{
+		while (rander == 2 && numClosed >= 2) //if it is 2, and we already have two closed spots
+			rander = (rand() % 3); //keep making new variables until it isnt 2
+		
+		numClosed++; //increment 
+	}
+	
+	eastSlot = (JigsawSlot)(rander);
+	
+	rander = (rand() % 3); 
+	
+	while (rander == 2 && numClosed >= 2) //if the number is 2 AND we have too many closed slots
+		rander = (rand() % 3); //keep making new numbers
+	
+	westSlot = (JigsawSlot)(rander);
+}
+
+#include <iostream>
+using std::cout;
+using std::endl;
+
+void JigsawPiece::printSlot()
+{
+	cout << (int)this->northSlot << ", " << (int)this->southSlot << ", "
+		<< (int)this->eastSlot <<  ", " << (int)this->westSlot << endl;
+
+}
+
+JigsawPuzzle::JigsawPuzzle()
+{
+	//shut up warning 
+#pragma warning (push)
+#pragma warning (disable:4244)
+	srand(time(NULL)); //reset the seed so we always have a new puzzle
+#pragma warning (pop)
+
+	//create a bunch of pieces
+	beginning = new LinkedList<JigsawPiece>[COLSIZE * ROWSIZE];
+
+	//printInfo(beginning);
+
+	
+	for (int i = 0; i < COLSIZE * ROWSIZE; i++)
+	{
+
+	}
+}
+
+bool JigsawPuzzle::fitsWith(int firstPiece, int secondPiece)
+{
+	//safety to be sure the pieces in question are valid numbers
+	if (firstPiece <= ROWSIZE * COLSIZE && secondPiece <= ROWSIZE * COLSIZE)
+	{
+		if (beginning[firstPiece].item->northSlot == JigsawSlot::out &&
+			beginning[secondPiece].item->southSlot == JigsawSlot::in)
+			return true;
+
+		else if (beginning[firstPiece].item->southSlot == JigsawSlot::out &&
+			beginning[secondPiece].item->northSlot == JigsawSlot::in)
+			return true;
+	}
+
+	return false;
+}
+
+void JigsawPuzzle::printInfo(LinkedList<JigsawPiece> *head)
+{
+	for (int i = 0; i < COLSIZE * ROWSIZE; i++)
+	{
+		beginning[i].item->printSlot();
+	}
+
+	std::cin.ignore();
+}
