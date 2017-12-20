@@ -3,22 +3,19 @@
 #include "UniqueLL.h"
 #include "Maze.h"
 #include "BinaryTree.h"
+#include "String.h"
+
+//used to detect memory leaks
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+
 
 int main()
 {
-	BinaryTree *head = BinaryTree::createTree();// = new BinaryTree;
-	
-	head->sort(head);
+	String d("finger");
 
-	Trace::out("In order\n");
-	head->inOrderTraversal(head);
-	Trace::out("\n\n");
+	d += " me daddy";
 
-	//Trace::out("Post order\n");
-	//head->postOrderTraversal(head);
-	//Trace::out("\n\n");
-
-	//Trace::out("Pre order\n");
-	//head->preOrderTraversal(head);
-	//Trace::out("\n\n");
+	_CrtDumpMemoryLeaks();
 }
