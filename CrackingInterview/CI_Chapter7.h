@@ -146,7 +146,7 @@ class JigsawPiece;
 class JigsawPuzzle
 {
 public:
-	JigsawPiece jigsaw[ROWSIZE][COLSIZE];
+	//JigsawPiece jigsaw[ROWSIZE][COLSIZE];
 
 	LinkedList<JigsawPiece> *beginning;
 	
