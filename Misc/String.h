@@ -17,5 +17,6 @@ public:
 	~String();
 
 	void operator +=(const char *string); //used for more natural string concatinations
+	char charAt(int index);
 };
 

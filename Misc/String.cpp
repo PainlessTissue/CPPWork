@@ -42,3 +42,8 @@ void String::operator+=(const char * string)
 	strcpy_s(this->str, _TRUNCATE, tmp); //copy all the data over
 	strcat_s(this->str, _TRUNCATE, string); //concatinate the new string on top
 }
+
+char String::charAt(int index)
+{
+	return str[index];
+}
