@@ -4,41 +4,58 @@
 class vNode;
 class hNode;
 
+//a hashtable that holds all the information required for the table itself.
+//implemented as a singleton so we dont have too many hashtables at once
 class HashTable
 {
-	vNode *head;
+	vNode *vHead; //beginning of hashtable
+	static HashTable *instance; //singleton instance of hashtable
+
+	HashTable();
+
+	int createHash(const char *str);
+	void addToList(const char *bookTitle, int hashId);
 
 public:
-	HashTable();
+	//singleton instance because there is no need for more than one table
+	static HashTable *getInstance();
+
 	~HashTable();
 
-	void addData(const char *bookTitle);
+	void addBook(const char *bookTitle);
 };
 
 //this is the class that represents the "verticle" nodes, the ones that get the hash id
 class vNode
 {
-	
-	hNode *head; //each node has a horizontal node that is however many nodes the node holds
+	hNode *hHead; //each node has a horizontal node that is however many nodes the node holds
 	vNode *below; //each vNode has a node thats below where it is currently 
 	int hashID;
 
+	void addNode(const char *bookTitle);
+
+	vNode *getNext() { return below; }
+	int getId() { return hashID; }
+	void setNext(vNode *next) { this->below = next; }
+
 public:
-	//no default constructor, if a vNode is being created, it needs a hashID
-	vNode(int ID);
-	~vNode();
+	//no default constructor, if a vNode is being created, 
+	//it needs a hashId for the node itself, and a book title for its hNode
+	vNode(int ID, const char *bookTitle);
+	~vNode();	
 };
 
 //this is the class that represents the "horizontal" nodes, the ones that actually own the data
 class hNode
 {
 	hNode *next; //each hNode has a next pointer to the next item in line
-	char *bookTitle;
+	char *bookTitle; //and the hNodes store the actual book title
+
+	hNode *getNext() { return next; }
+	void setNext(hNode *next) { this->next = next; }
 
 public:
 	//no default constructor, if youre making a hNode, it has to come with a book title
 	hNode(const char *title);
 	~hNode();
-	
-	hNode *getNext() { return next; }
 };
