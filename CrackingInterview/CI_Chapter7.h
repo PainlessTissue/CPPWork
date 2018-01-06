@@ -135,6 +135,8 @@ public:
 //question 6: design an n*n jigsaw puzzle and an algoritm to solve it
 //it also has a fitswith() method that checks if two pieces would fit together
 
+#include <random>
+
 #define ROWSIZE 3
 #define COLSIZE 3
 
@@ -143,11 +145,14 @@ class JigsawPiece;
 
 class JigsawPuzzle
 {
-	int row, column; //the size of the puzzle
-
 public:
-	bool fitsWith(int jigRow, int jigCol);
+	//JigsawPiece jigsaw[ROWSIZE][COLSIZE];
 
+	LinkedList<JigsawPiece> *beginning;
+	
+	JigsawPuzzle();
+	bool fitsWith(int firstPiece, int secondPiece);
+	void printInfo(LinkedList<JigsawPiece> *head);
 };
 
 enum class JigsawSlot
@@ -157,7 +162,16 @@ enum class JigsawSlot
 
 class JigsawPiece
 {
+public:
 	//each jigsaw piece will have pointers to whoever resides around the piece
-	//this will determine whether a piece can fit together
-	JigsawPiece *north, *south, *east, *west;
+	JigsawPiece *northPiece, *southPiece, *eastPiece, *westPiece;
+	
+	//a jigsaw also has different types of spots, which is what this represents
+	JigsawSlot northSlot, southSlot, eastSlot, westSlot;
+
+	//this variable determines whether the puzzle piece is in the puzzle or not
+	bool inserted;
+	
+	JigsawPiece();
+	void printSlot(); //print all the pieces info
 };

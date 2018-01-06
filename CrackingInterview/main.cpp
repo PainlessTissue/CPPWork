@@ -16,7 +16,7 @@
 
 int main()
 {
-	ParkingGarage *garage = ParkingGarage::createParkingGarage();
+	JigsawPuzzle d;
 
 	_CrtDumpMemoryLeaks();
 }

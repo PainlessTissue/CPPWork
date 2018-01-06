@@ -3,22 +3,27 @@
 #include "UniqueLL.h"
 #include "Maze.h"
 #include "BinaryTree.h"
+#include "String.h"
+#include "HashTable.h"
+
+//used to detect memory leaks
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
 
 int main()
 {
-	BinaryTree *head = BinaryTree::createTree();// = new BinaryTree;
-	
-	head->sort(head);
+	HashTable *table = HashTable::getInstance();
 
-	Trace::out("In order\n");
-	head->inOrderTraversal(head);
-	Trace::out("\n\n");
+	table->addBook("Grandma Eats cows");
+	table->addBook("Fingers and their friend");
+	table->addBook("Hey");
+	table->addBook("Grandma and her korean friend");
+	table->addBook("yeH");
+	table->addBook("German CookieSHeet");
 
-	//Trace::out("Post order\n");
-	//head->postOrderTraversal(head);
-	//Trace::out("\n\n");
+	table = HashTable::getInstance();
+	delete table;
 
-	//Trace::out("Pre order\n");
-	//head->preOrderTraversal(head);
-	//Trace::out("\n\n");
+	_CrtDumpMemoryLeaks();
 }
