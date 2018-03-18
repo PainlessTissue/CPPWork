@@ -5,6 +5,7 @@
 #include "BinaryTree.h"
 #include "String.h"
 #include "HashTable.h"
+#include "Tries.h"
 
 //used to detect memory leaks
 #define _CRTDBG_MAP_ALLOC
@@ -13,17 +14,11 @@
 
 int main()
 {
-	HashTable *table = HashTable::getInstance();
-
-	table->addBook("Grandma Eats cows");
-	table->addBook("Fingers and their friend");
-	table->addBook("Hey");
-	table->addBook("Grandma and her korean friend");
-	table->addBook("yeH");
-	table->addBook("German CookieSHeet");
-
-	table = HashTable::getInstance();
-	delete table;
+	Tries trie;
+	GenericDigit *head = new GenericDigit(1);
+	trie.createNumber(head, "1234", 4, "camme");
+	//trie.createNumber(head, "5243", 4, "Grass");
+	delete head;
 
 	_CrtDumpMemoryLeaks();
 }
