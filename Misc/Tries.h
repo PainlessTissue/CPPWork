@@ -26,11 +26,10 @@ class Digit
 {
 public:
 	int number;
-	Digit *digitArray[10];
 
-	int getNum() { return number; }
-	int setNum(int num) { this->number = num; }
-
+	//int getNum() { return number; }
+	//int setNum(int num) { this->number = num; }
+	
 };
 
 //these are all the numbers that represent 9 out of the 10 digits in a phone number
@@ -38,6 +37,8 @@ public:
 class GenericDigit : public Digit
 {
 public:
+	Digit * digitArray[10];
+
 	GenericDigit(int num);
 	~GenericDigit();
 
@@ -48,8 +49,9 @@ public:
 class FinalDigit : public Digit
 {
 	const char* address;
-	const char* number;
+	const char* numberString;
 
 public:
-	FinalDigit(int num) {}
+	FinalDigit(int num, const char* address, const char *number);
+	~FinalDigit();
 };

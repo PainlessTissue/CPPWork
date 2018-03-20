@@ -4,14 +4,20 @@
 
 void Tries::recursiveHelper(Digit * node, int iter, const char * arr, int numLen, const char * address)
 {
-	if (iter >= numLen)
+	GenericDigit *Gnode = (GenericDigit*)node;
+	int arrayNum = arr[iter] - '0';
+	if (iter == numLen - 1)
+	{
+		Gnode->digitArray[arrayNum] = new FinalDigit(arr[arrayNum], address, arr);
 		return;
+	}
+
 	else
 	{
-		if (node->digitArray[arr[iter] - '0'] == 0)
-			node->digitArray[arr[iter]] = new GenericDigit(arr[iter]);
+		if (Gnode->digitArray[arrayNum] == 0)
+			Gnode->digitArray[arrayNum] = new GenericDigit(arrayNum);
 
-		recursiveHelper(node->digitArray[arr[iter]], iter + 1, arr, numLen, address);
+		recursiveHelper(Gnode->digitArray[arrayNum], iter + 1, arr, numLen, address);
 	}
 }
 
@@ -37,4 +43,16 @@ GenericDigit::~GenericDigit()
 		if (this->digitArray[i] != 0)
 			delete this->digitArray[i];
 	}
+}
+
+FinalDigit::FinalDigit(int num, const char * address, const char * number)
+	:address(address), numberString(number)
+{
+	this->number = num;
+}
+
+FinalDigit::~FinalDigit()
+{
+	delete address;
+	delete numberString;
 }
