@@ -1,6 +1,6 @@
 #include "Tries.h"
 #include "Trace.h"
-
+#pragma warning(disable:4267) //size_t stuff
 
 void Tries::recursiveHelper(Digit * node, int iter, const char * arr, int numLen, const char * address)
 {
@@ -46,9 +46,11 @@ GenericDigit::~GenericDigit()
 }
 
 FinalDigit::FinalDigit(int num, const char * address, const char * number)
-	:address(address), numberString(number)
 {
-	this->number = num;
+	this->address = new char[strlen(address) + 1];
+	this->numberString = new char[strlen(number) + 1];
+	strcpy_s(this->address, _TRUNCATE, address);
+	strcpy_s(this->numberString, _TRUNCATE, number);
 }
 
 FinalDigit::~FinalDigit()

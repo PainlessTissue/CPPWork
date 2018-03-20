@@ -27,9 +27,7 @@ class Digit
 public:
 	int number;
 
-	//int getNum() { return number; }
-	//int setNum(int num) { this->number = num; }
-	
+	virtual ~Digit() {}
 };
 
 //these are all the numbers that represent 9 out of the 10 digits in a phone number
@@ -40,18 +38,17 @@ public:
 	Digit * digitArray[10];
 
 	GenericDigit(int num);
-	~GenericDigit();
-
+	virtual ~GenericDigit();
 };
 
 //this is the final digit in the trie, storing all the further information
 //regarding the phone number (address, name, email, etc)
 class FinalDigit : public Digit
 {
-	const char* address;
-	const char* numberString;
+	char* address;
+	char* numberString;
 
 public:
 	FinalDigit(int num, const char* address, const char *number);
-	~FinalDigit();
+	virtual ~FinalDigit();
 };

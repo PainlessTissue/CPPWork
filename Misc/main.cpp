@@ -16,8 +16,10 @@ int main()
 {
 	Tries trie;
 	GenericDigit *head = new GenericDigit(1);
-	trie.createNumber(head, "1234", 4, "camme");
-	//trie.createNumber(head, "5243", 4, "Grass");
+	trie.createNumber(head, "12", 2, "camme");
+	trie.createNumber(head, "5243", 4, "Grass");
+	trie.createNumber(head, "1242454", 7, "ca");
+	trie.createNumber(head, "16307800997", 10, "din");
 	delete head;
 
 	_CrtDumpMemoryLeaks();
