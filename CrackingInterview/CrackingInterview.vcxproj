@@ -113,6 +113,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CI_Chapter1.h" />
+    <ClInclude Include="CI_Chapter10.h" />
     <ClInclude Include="CI_Chapter12.h" />
     <ClInclude Include="CI_Chapter13.h" />
     <ClInclude Include="CI_Chapter2.h" />
@@ -122,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CI_Chapter1.cpp" />
+    <ClCompile Include="CI_Chapter10.cpp" />
     <ClCompile Include="CI_Chapter12.cpp" />
     <ClCompile Include="CI_Chapter13.cpp" />
     <ClCompile Include="CI_Chapter2.cpp" />
